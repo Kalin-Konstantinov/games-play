@@ -11,72 +11,9 @@ function App() {
             </main>
             <Home />
     
-            <section id="login-page" className="auth">
-                <form id="login">
-
-                    <div className="container">
-                        <div className="brand-logo"></div>
-                        <h1>Login</h1>
-                        <label htmlFor="email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="Sokka@gmail.com" />
-
-                        <label htmlFor="login-pass">Password:</label>
-                        <input type="password" id="login-password" name="password" />
-                        <input type="submit" className="btn submit" value="Login" />
-                        <p className="field">
-                            <span>If you don't have profile click <a href="#">here</a></span>
-                        </p>
-                    </div>
-                </form>
-            </section>
-
-            <section id="register-page" className="content auth">
-                <form id="register">
-                    <div className="container">
-                        <div className="brand-logo"></div>
-                        <h1>Register</h1>
-
-                        <label htmlFor="email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="maria@email.com" />
-
-                        <label htmlFor="pass">Password:</label>
-                        <input type="password" name="password" id="register-password" />
-
-                        <label htmlFor="con-pass">Confirm Password:</label>
-                        <input type="password" name="confirm-password" id="confirm-password" />
-
-                        <input className="btn submit" type="submit" value="Register" />
-
-                        <p className="field">
-                            <span>If you already have profile click <a href="#">here</a></span>
-                        </p>
-                    </div>
-                </form>
-            </section>
-
-            <section id="create-page" className="auth">
-                <form id="create">
-                    <div className="container">
-
-                        <h1>Create Game</h1>
-                        <label htmlFor="leg-title">Legendary title:</label>
-                        <input type="text" id="title" name="title" placeholder="Enter game title..." />
-
-                        <label htmlFor="category">Category:</label>
-                        <input type="text" id="category" name="category" placeholder="Enter game category..." />
-
-                        <label htmlFor="levels">MaxLevel:</label>
-                        <input type="number" id="maxLevel" name="maxLevel" min="1" placeholder="1" />
-
-                        <label htmlFor="game-img">Image:</label>
-                        <input type="text" id="imageUrl" name="imageUrl" placeholder="Upload a photo..." />
-
-                        <label htmlFor="summary">Summary:</label>
-                        <textarea name="summary" id="summary"></textarea>
-                        <input className="btn submit" type="submit" value="Create Game" />
-                    </div>
-                </form>
-            </section>
+        
+       
+      
 
             <section id="edit-page" className="auth">
                 <form id="edit">
