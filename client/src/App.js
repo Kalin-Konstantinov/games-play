@@ -7,18 +7,7 @@ function App() {
 
             <Header />
 
-            <main id="main-content">
-            </main>
             <Home />
-    
-        
-       
-      
-
-       
-
-           
-
             
         </div>
     );
