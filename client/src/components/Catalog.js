@@ -16,10 +16,10 @@ const Catalog = () => {
     return (
         <section id="catalog-page">
             <h1>All Games</h1>
-            {games.map(game => {
-                console.log(game);
-                return games.length > 0 ? <CardGame game={game} /> : <h3 className="no-articles">No articles yet</h3>;
-            })}
+            {games.length > 0
+                ? games.map(game => <CardGame game={game} key={game._id} />)
+                : <h3 className="no-articles">No articles yet</h3>
+            }
         </section>
     );
 }
