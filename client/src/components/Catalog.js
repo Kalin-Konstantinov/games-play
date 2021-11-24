@@ -13,12 +13,13 @@ const Catalog = () => {
                 })
         }, 1000)
     }, []);
+    
     return (
         <section id="catalog-page">
             <h1>All Games</h1>
             {games.length > 0
                 ? games.map(game => <CardGame game={game} key={game._id} />)
-                : <h3 className="no-articles">No articles yet</h3>
+                : <h3 className="no-articles">No games yet</h3>
             }
         </section>
     );
