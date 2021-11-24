@@ -6,12 +6,10 @@ import { useState, useEffect } from 'react';
 const Catalog = () => {
     let [games, setGames] = useState([])
     useEffect(() => {
-        setTimeout(() => {
-            gameService.getAll()
-                .then(result => {
-                    setGames(result)
-                })
-        }, 1000)
+        gameService.getAll()
+            .then(result => {
+                setGames(result)
+            })
     }, []);
 
     return (
