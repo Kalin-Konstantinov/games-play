@@ -1,5 +1,5 @@
 import CardGame from "./CardGame";
-import * as gameService from "../services/gameService";
+import * as gameService from "../../services/gameService";
 
 import { useState, useEffect } from 'react';
 

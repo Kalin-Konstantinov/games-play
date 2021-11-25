@@ -10,7 +10,7 @@ const CardGame = ({
                 <img src={game.imageUrl} alt="some"/>
                 <h6>{game.category}</h6>
                 <h2>{game.title}</h2>
-                <a href="/details" className="details-button">Details</a>
+                <a href={`/details/${game._id}`} className="details-button">Details</a>
             </div>
 
         </div>

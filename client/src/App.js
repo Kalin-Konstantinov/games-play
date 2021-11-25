@@ -6,7 +6,7 @@ import Register from "./components/Register";
 import Edit from "./components/Edit";
 import Details from "./components/Details";
 import Create from "./components/Create";
-import Catalog from "./components/Catalog";
+import Catalog from "./components/catalog/Catalog";
 
 function App() {
     return (
@@ -17,7 +17,7 @@ function App() {
                 <Route path="/login" component={Login} />
                 <Route path="/register" component={Register} />
                 <Route path="/edit" component={Edit} />
-                <Route path="/details" component={Details} />
+                <Route path="/details/:gameId" component={Details} />
                 <Route path="/create" component={Create} />
                 <Route path="/all-games" component={Catalog} />
             </Router>
