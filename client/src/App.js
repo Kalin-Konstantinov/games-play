@@ -1,12 +1,12 @@
-import Header from "./components/Header";
-import Home from "./components/Home/Home";
+import Header from "./components/HeaderComponent";
+import Home from "./components/HomePage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Edit from "./components/Edit";
-import Details from "./components/Details";
-import Create from "./components/Create";
-import Catalog from "./components/catalog/Catalog";
+import Login from "./components/LoginPage/Login";
+import Register from "./components/RegisterPage";
+import Edit from "./components/EditPage";
+import Details from "./components/DetailsPage/Details";
+import Create from "./components/CreatePage/Create";
+import Catalog from "./components/CatalogPage";
 
 function App() {
     return (
