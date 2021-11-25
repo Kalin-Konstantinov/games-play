@@ -6,7 +6,7 @@ const Details = ({
 }) => {
     let gameId = match.params.gameId;
 
-    let [game, setGame] = useState();
+    let [game, setGame] = useState([]);
     useEffect(() => {
         gameService.getOne(gameId)
             .then(result => {
