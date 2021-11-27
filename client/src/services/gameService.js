@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3030'
+import { baseUrl } from './constants'
 
 export const getAll = () => {
     return fetch(`${baseUrl}/data/games?sortBy=_createdOn%20desc`)

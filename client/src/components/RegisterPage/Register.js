@@ -1,14 +1,29 @@
 import { Link } from "react-router-dom";
+import { safeUserData } from "../../helpers/authControl";
+import { register } from "../../services/authServise";
 
-const onSubmit = (e) => {
-    e.preventDefault();
-    const form = new FormData(e.target);
-    const email = form.get('email');
-    const password = form.get('password');
-    const rePassword = form.get('confirm-password');
-}
+const Register = ({
+    history,
+}) => {
 
-const Register = () => {
+    const onSubmit = (e) => {
+        e.preventDefault();
+        const form = new FormData(e.target);
+        const email = form.get('email');
+        const password = form.get('password');
+        const rePassword = form.get('confirm-password');
+        if (password !== rePassword) {
+            return alert('Password must match repeat password.');
+        }
+        register({ email, password })
+            .then(x => {
+                safeUserData(x);
+                e.target.reset();
+                history.push('/');
+            })
+    }
+
+
     return (
         <section id="register-page" className="content auth">
             <form id="register" onSubmit={onSubmit}>
