@@ -1,13 +1,25 @@
 import { Link } from "react-router-dom";
+import { safeUserData } from "../../helpers/authControl";
+import { login } from "../../services/authServise";
 
-const onSubmit = (e) => {
-    e.preventDefault();
-    const form = new FormData(e.target);
-    const email = form.get('email');
-    const password = form.get('password');
-}
 
-const Login = () => {
+const Login = ({
+    history,
+}) => {
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        const form = new FormData(e.target);
+        const email = form.get('email');
+        const password = form.get('password');
+        login({ email, password })
+            .then((res) => {
+                safeUserData(res);
+                e.target.reset();
+                history.push('/');
+            });
+    }
+
     return (
         <section id="login-page" className="auth">
             <form id="login" onSubmit={onSubmit}>
