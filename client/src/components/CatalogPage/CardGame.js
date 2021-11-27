@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom'
 
 
 const CardGame = ({
@@ -7,10 +7,10 @@ const CardGame = ({
     return (
         <div className="allGames">
             <div className="allGames-info">
-                <img src={game.imageUrl} alt="some"/>
+                <img src={game.imageUrl} alt="some" />
                 <h6>{game.category}</h6>
                 <h2>{game.title}</h2>
-                <a href={`/details/${game._id}`} className="details-button">Details</a>
+                <Link to={`/details/${game._id}`} className="details-button">Details</Link>
             </div>
 
         </div>

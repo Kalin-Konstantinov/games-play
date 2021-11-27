@@ -1,5 +1,6 @@
 import * as gameService from "../../services/gameService";
 import { useState, useEffect } from 'react';
+import { Link} from 'react-router-dom';
 
 const Details = ({
     match
@@ -41,8 +42,8 @@ const Details = ({
                 </div>
 
                 <div className="buttons">
-                    <a href={`/edit/${gameId}`} className="button">Edit</a>
-                    <a href={`/delete/${gameId}`}className="button">Delete</a>
+                    <Link to={`/edit/${gameId}`} className="button">Edit</Link>
+                    <Link to={`/delete/${gameId}`}className="button">Delete</Link>
                 </div>
             </div>
 
