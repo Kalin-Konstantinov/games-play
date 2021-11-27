@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
 
-
+const onSubmit = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.target);
+    const email = form.get('email');
+    const password = form.get('password');
+    const rePassword = form.get('confirm-password');
+}
 
 const Register = () => {
     return (
         <section id="register-page" className="content auth">
-            <form id="register">
+            <form id="register" onSubmit={onSubmit}>
                 <div className="container">
                     <div className="brand-logo"></div>
                     <h1>Register</h1>
