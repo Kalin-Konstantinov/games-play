@@ -1,9 +1,37 @@
+import { createGame } from "../../services/gameService";
 
 
-const Create = () => {
+const Create = ({
+    history,
+}) => {
+    const onCreate = (e) => {
+        e.preventDefault();
+        const form = new FormData(e.target);
+        const title = form.get('title');
+        const category = form.get('category');
+        const maxLevel = form.get('maxLevel');
+        const imageUrl = form.get('imageUrl');
+        const summary = form.get('summary');
+        const isDataNotValid = !title || !category || !maxLevel || !imageUrl || !summary;
+        if (isDataNotValid) {
+            return alert('Please fill all fields.')
+        }
+
+        const game = {
+            title,
+            category,
+            maxLevel,
+            imageUrl,
+            summary,
+        }
+
+        createGame(game)
+            .then(() => history.push('/'))
+    }
+
     return (
         <section id="create-page" className="auth">
-            <form id="create">
+            <form id="create" onSubmit={onCreate}>
                 <div className="container">
 
                     <h1>Create Game</h1>

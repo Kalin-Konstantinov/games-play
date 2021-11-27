@@ -1,4 +1,3 @@
-import { Redirect } from "react-router-dom";
 import { deleteUserData } from "../../helpers/authControl";
 import { logout } from "../../services/authServise";
 
