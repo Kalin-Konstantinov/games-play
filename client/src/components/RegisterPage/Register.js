@@ -4,6 +4,7 @@ import { register } from "../../services/authServise";
 
 const Register = ({
     history,
+    onLogin,
 }) => {
 
     const onSubmit = (e) => {
@@ -18,6 +19,7 @@ const Register = ({
         register({ email, password })
             .then(x => {
                 safeUserData(x);
+                onLogin();
                 e.target.reset();
                 history.push('/');
             })

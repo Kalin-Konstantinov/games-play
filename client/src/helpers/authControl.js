@@ -7,4 +7,4 @@ export const safeUserData = (data) => {
 
 export const deleteUserData = () => localStorage.removeItem(itemInLocalStorage);
 
-export const getUserData = () => localStorage.getItem(itemInLocalStorage);
+export const getUserData = () => JSON.parse(localStorage.getItem(itemInLocalStorage));

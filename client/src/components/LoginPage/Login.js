@@ -4,6 +4,7 @@ import { login } from "../../services/authServise";
 
 
 const Login = ({
+    onLogin,
     history,
 }) => {
 
@@ -15,6 +16,7 @@ const Login = ({
         login({ email, password })
             .then((res) => {
                 safeUserData(res);
+                onLogin();
                 e.target.reset();
                 history.push('/');
             });
