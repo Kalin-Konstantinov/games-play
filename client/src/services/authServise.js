@@ -17,3 +17,13 @@ export const register = (user) => {
     })
         .then(res => res.json())
 }
+
+export const logout = (user) => {
+    return fetch(`${baseUrl}/users/logout`, {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': user.accessToken
+        }
+    })
+}
