@@ -1,6 +1,6 @@
 import Header from "./components/HeaderComponent";
 import Home from "./components/HomePage";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
 import Login from "./components/LoginPage/Login";
 import Register from "./components/RegisterPage";
 import Edit from "./components/EditPage";
@@ -9,9 +9,11 @@ import Create from "./components/CreatePage/Create";
 import Catalog from "./components/CatalogPage";
 import { deleteUserData, getUserData } from "./helpers/authControl";
 import { useEffect, useState } from "react";
+import { logout } from "./services/authServise";
 
 function App() {
     let [userValue, setUserValue] = useState(false);
+    let history = useHistory();
 
     useEffect(() => {
         setUserValue(Boolean(getUserData(userValue)));
@@ -20,27 +22,30 @@ function App() {
     const onLogin = () => {
         setUserValue(true);
     }
-   
+
     const onLogout = () => {
-        setUserValue(false);
-        deleteUserData();
-        return <Redirect to="/" />;
+        const user = getUserData();
+        logout(user)
+            .then(() => {
+                setUserValue(false);
+                deleteUserData();
+                history.push('/')
+            })
+        return null;
     }
 
     return (
 
         <div id="box">
-            <Router>
-                <Header userValue={userValue} />
-                <Route path="/" exact component={Home} />
-                <Route path="/login" component={(props) => Login({ ...props, onLogin })} />
-                <Route path="/register" component={(props) => Register({ ...props, onLogin })} />
-                <Route path="/edit" component={Edit} />
-                <Route path="/details/:gameId" component={Details} />
-                <Route path="/create" component={Create} />
-                <Route path="/all-games" component={Catalog} />
-                <Route path="/logout" component= {()=> onLogout()} />
-            </Router>
+            <Header userValue={userValue} />
+            <Route path="/" exact component={Home} />
+            <Route path="/login" component={(props) => Login({ ...props, onLogin })} />
+            <Route path="/register" component={(props) => Register({ ...props, onLogin })} />
+            <Route path="/edit" component={Edit} />
+            <Route path="/details/:gameId" component={Details} />
+            <Route path="/create" component={Create} />
+            <Route path="/all-games" component={Catalog} />
+            <Route path="/logout" component={() => onLogout()} />
         </div>
     );
 }
