@@ -1,16 +1,16 @@
 import { deleteUserData, getUserData } from "../../helpers/authControl";
 import { logout } from "../../services/authServise";
-import { Redirect} from "react-router-dom"
+import { Redirect } from "react-router-dom"
 
 
-const Logout = (props) => {
+const Logout = ({
+    onLogout,
+}) => {
     const user = getUserData();
-    console.log(props);
     logout(user)
         .then(() => {
             deleteUserData();
-            props.onLogout();
-            // props.history.push('/');
+            onLogout();
         })
     return <Redirect to='/' />;
 }
