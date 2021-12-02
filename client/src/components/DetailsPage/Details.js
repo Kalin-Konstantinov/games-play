@@ -13,7 +13,7 @@ const Details = ({
             .then(result => {
                 setGame(result);
             })
-    }, [])
+    }, [gameId])
     return (
         <section id="game-details">
             <h1>Game Details</h1>
