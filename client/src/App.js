@@ -17,7 +17,7 @@ function App() {
 
     useEffect(() => {
         setUserValue(Boolean(getUserData(userValue)));
-    }, [userValue])
+    }, [userValue]);
 
     const onLogin = () => {
         setUserValue(true);
@@ -29,7 +29,7 @@ function App() {
             .then(() => {
                 setUserValue(false);
                 deleteUserData();
-                history.push('/')
+                history.push('/');
             })
         return null;
     }
