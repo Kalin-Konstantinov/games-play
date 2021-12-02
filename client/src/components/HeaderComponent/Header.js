@@ -7,7 +7,7 @@ const Header = ({
     const loggedUser = (
         <div id="user">
             <Link to="/create">Create Game</Link>
-            <Link to="logout">Logout</Link>
+            <Link to="/logout">Logout</Link>
         </div>
     );
     const guest = (

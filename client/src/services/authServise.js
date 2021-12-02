@@ -23,7 +23,7 @@ export const logout = (user) => {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
-            'X-Authorization': user.accessToken
+            'X-Authorization': user.accessToken,
         }
     })
 }

@@ -1,14 +1,13 @@
 import Header from "./components/HeaderComponent";
 import Home from "./components/HomePage";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Login from "./components/LoginPage/Login";
 import Register from "./components/RegisterPage";
 import Edit from "./components/EditPage";
 import Details from "./components/DetailsPage/Details";
 import Create from "./components/CreatePage/Create";
 import Catalog from "./components/CatalogPage";
-import Logout from "./components/Logout";
-import { getUserData } from "./helpers/authControl";
+import { deleteUserData, getUserData } from "./helpers/authControl";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -21,8 +20,11 @@ function App() {
     const onLogin = () => {
         setUserValue(true);
     }
+   
     const onLogout = () => {
         setUserValue(false);
+        deleteUserData();
+        return <Redirect to="/" />;
     }
 
     return (
@@ -37,7 +39,7 @@ function App() {
                 <Route path="/details/:gameId" component={Details} />
                 <Route path="/create" component={Create} />
                 <Route path="/all-games" component={Catalog} />
-                <Route path="/logout" component={(props) => Logout({ ...props, onLogout })} />
+                <Route path="/logout" component= {()=> onLogout()} />
             </Router>
         </div>
     );

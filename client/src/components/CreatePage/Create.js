@@ -26,7 +26,7 @@ const Create = ({
         }
 
         createGame(game)
-            .then(() => history.push('/'))
+            .then(() => history.push('/'));
     }
 
     return (
