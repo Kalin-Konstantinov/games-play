@@ -2,9 +2,6 @@
 const Comments = ({
     comments,
 }) => {
-   
-
-
     return (
         <div className="details-comments">
             <h2>Comments:</h2>

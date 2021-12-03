@@ -26,12 +26,12 @@ const Details = ({
             .then(allComments => {
                 setComments(allComments);
             })
-    }, [gameId, comments])
+    }, [gameId])
 
     const handleAddComment = () => {
         getAllComments(gameId)
             .then(allComments => {
-                return setComments({...allComments});
+                return setComments(allComments);
             })
     }
 
