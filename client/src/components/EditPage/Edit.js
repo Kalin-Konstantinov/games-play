@@ -16,7 +16,7 @@ const Edit = ({
             .then(game => {
                 setGame(game)
             })
-    }, [match.params.gameId]);
+    }, [gameId]);
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -33,7 +33,7 @@ const Edit = ({
         editGame({ title, category, maxLevel, imageUrl, summary }, gameId)
             .then(() => history.push('/'))
     }
-
+  
     return (
         <section id="edit-page" className="auth">
             <form id="edit" onSubmit={onSubmit}>

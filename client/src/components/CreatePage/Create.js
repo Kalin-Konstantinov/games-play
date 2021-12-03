@@ -23,6 +23,7 @@ const Create = ({
             maxLevel,
             imageUrl,
             summary,
+            comments: [],
         }
 
         createGame(game)
