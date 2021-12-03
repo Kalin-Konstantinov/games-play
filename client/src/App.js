@@ -10,6 +10,7 @@ import Catalog from "./components/CatalogPage";
 import { deleteUserData, getUserData } from "./helpers/authControl";
 import { useEffect, useState } from "react";
 import { logout } from "./services/authServise";
+import { deleteGame } from "./services/gameService";
 
 function App() {
     let [userValue, setUserValue] = useState(false);
@@ -34,6 +35,23 @@ function App() {
         return null;
     }
 
+    const onDelete = ({
+        match
+    }) => {
+        deleteGame(match.params.gameId)
+            .then(res => {
+                if (res.code !== 200) {
+                    history.push('/');
+                    throw res;
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                history.push('/');
+            });
+        return null;
+    }
+
     return (
 
         <div id="box">
@@ -43,6 +61,7 @@ function App() {
             <Route path="/register" component={(props) => Register({ ...props, onLogin })} />
             <Route path="/edit" component={Edit} />
             <Route path="/details/:gameId" component={Details} />
+            <Route path="/delete/:gameId" component={onDelete} />
             <Route path="/create" component={Create} />
             <Route path="/all-games" component={Catalog} />
             <Route path="/logout" component={() => onLogout()} />

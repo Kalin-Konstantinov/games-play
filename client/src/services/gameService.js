@@ -22,3 +22,15 @@ export const createGame = (game) => {
     })
         .then(res => res.json());
 }
+
+export const deleteGame = (gameId) => {
+    let user = getUserData();
+    return fetch(`${baseUrl}/data/games/${gameId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': user.accessToken,
+        }
+    })
+        .then(res => res.json());
+}
