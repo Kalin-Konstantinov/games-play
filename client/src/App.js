@@ -59,7 +59,7 @@ function App() {
             <Route path="/" exact component={Home} />
             <Route path="/login" component={(props) => Login({ ...props, onLogin })} />
             <Route path="/register" component={(props) => Register({ ...props, onLogin })} />
-            <Route path="/edit" component={Edit} />
+            <Route path="/edit/:gameId" component={Edit} />
             <Route path="/details/:gameId" component={Details} />
             <Route path="/delete/:gameId" component={onDelete} />
             <Route path="/create" component={Create} />

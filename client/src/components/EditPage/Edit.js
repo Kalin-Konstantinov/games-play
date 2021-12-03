@@ -1,7 +1,20 @@
+import { getOne } from "../../services/gameService";
+import { useEffect, useState } from 'react'
 
 
 
-const Edit = () => {
+const Edit = ({
+    match,
+}) => {
+    let [game, setGame] = useState({})
+
+    useEffect(() => {
+        getOne(match.params.gameId)
+            .then(game => {
+                setGame(game)
+            })
+    }, [match.params.gameId])
+
     return (
         <section id="edit-page" className="auth">
             <form id="edit">
@@ -9,19 +22,19 @@ const Edit = () => {
 
                     <h1>Edit Game</h1>
                     <label htmlFor="leg-title">Legendary title:</label>
-                    <input type="text" id="title" name="title" />
+                    <input type="text" id="title" name="title" defaultValue={game.title} />
 
                     <label htmlFor="category">Category:</label>
-                    <input type="text" id="category" name="category" />
+                    <input type="text" id="category" name="category" defaultValue={game.category} />
 
                     <label htmlFor="levels">MaxLevel:</label>
-                    <input type="number" id="maxLevel" name="maxLevel" min="1" />
+                    <input type="number" id="maxLevel" name="maxLevel" min="1" defaultValue={game.maxLevel} />
 
                     <label htmlFor="game-img">Image:</label>
-                    <input type="text" id="imageUrl" name="imageUrl" />
+                    <input type="text" id="imageUrl" name="imageUrl" defaultValue={game.imageUrl} />
 
                     <label htmlFor="summary">Summary:</label>
-                    <textarea name="summary" id="summary"></textarea>
+                    <textarea name="summary" id="summary" defaultValue={game.summary}></textarea>
                     <input className="btn submit" type="submit" value="Edit Game" />
 
                 </div>
