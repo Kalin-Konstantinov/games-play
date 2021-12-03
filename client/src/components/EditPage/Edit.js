@@ -1,23 +1,42 @@
-import { getOne } from "../../services/gameService";
+import { editGame, getOne } from "../../services/gameService";
 import { useEffect, useState } from 'react'
 
 
 
 const Edit = ({
     match,
+    history,
 }) => {
     let [game, setGame] = useState({})
 
+    const gameId = match.params.gameId
+
     useEffect(() => {
-        getOne(match.params.gameId)
+        getOne(gameId)
             .then(game => {
                 setGame(game)
             })
-    }, [match.params.gameId])
+    }, [match.params.gameId]);
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        const gameData = new FormData(e.currentTarget);
+        const title = gameData.get('title');
+        const category = gameData.get('category');
+        const maxLevel = gameData.get('maxLevel');
+        const imageUrl = gameData.get('imageUrl');
+        const summary = gameData.get('summary');
+        const isNotValid = title === '' || category === '' || imageUrl === '' || summary === '' || maxLevel === '';
+        if (isNotValid) {
+            return alert('Fields cannot be empty')
+        }
+        editGame({ title, category, maxLevel, imageUrl, summary }, gameId)
+            .then(() => history.push('/'))
+    }
 
     return (
         <section id="edit-page" className="auth">
-            <form id="edit">
+            <form id="edit" onSubmit={onSubmit}>
                 <div className="container">
 
                     <h1>Edit Game</h1>

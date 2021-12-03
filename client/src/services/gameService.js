@@ -34,3 +34,16 @@ export const deleteGame = (gameId) => {
     })
         .then(res => res.json());
 }
+
+export const editGame = (game, gameId) => {
+    const user = getUserData();
+    return fetch(`${baseUrl}/data/games/${gameId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': user.accessToken,
+        },
+        body: JSON.stringify(game)
+    })
+        .then(res => res.json())
+}

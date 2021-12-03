@@ -17,8 +17,8 @@ function App() {
     let history = useHistory();
 
     useEffect(() => {
-        setUserValue(Boolean(getUserData(userValue)));
-    }, [userValue]);
+        setUserValue(Boolean(getUserData()));
+    }, []);
 
     const onLogin = () => {
         setUserValue(true);
