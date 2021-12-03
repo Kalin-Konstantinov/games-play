@@ -16,6 +16,9 @@ const AddComment = ({
         const comment = commentData.get('comment');
         const data = { gameId, comment };
         const token = getUserData()?.accessToken;
+        if(comment == '') {
+            return alert('Comment cannot be empty string');
+        }
         addComment(data, token)
             .then(() => {
                 handleAddComment();
