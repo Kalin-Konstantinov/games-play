@@ -131,11 +131,11 @@ To delete game send following request to `/data/games/:gameId`:
 
 ## Comments
 
-## AllComments
+### AllComments
 
 To get all comments for a specific game send `GET` request to `/data/comments?where=gameId%3D%22{gameId}%22`
 
-## CreateComment
+### CreateComment
 
 To create comment for a specific game send following request to `/data/comments`:
 
