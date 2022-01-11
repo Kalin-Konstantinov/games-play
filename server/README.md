@@ -1,6 +1,8 @@
 # SoftUni practice server
 
-This is SoftUni practice server created by Viktor Konstadinov for educational purposes.
+To run application run command `npm start`.
+
+This is SoftUni practice server created by Viktor Konstadinov for educational purposes. Note that changes to the data will not be persisted! All operations happen in memory and will be wiped when the service is restarted.
 
 ## Services
 
