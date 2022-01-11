@@ -12,7 +12,21 @@ This is SoftUni practice server created by Viktor Konstadinov for educational pu
 
 ### Register User
 
-To register user:
+To register user send the following request on `/users/register`:
+```
+{
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email, password })
+}
+```
+
+### Login Users
+
+To login user send the following request on `/users/login`:
+
 ```
 {
     method: 'POST',
