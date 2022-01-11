@@ -5,12 +5,15 @@ This is SoftUni practice server created by Viktor Konstadinov for educational pu
 | Services
 |---
 | -[Authentication](#authentication)
+|   -[Login](#login)
+|   -[Register](#register)
+|   -[Logout](#logout)
 | -[Games](#games)
 | -[Comments](#comments)
 
 ## Authentication
 
-### Register User
+### Register
 
 To register user send the following request on `/users/register`:
 ```
@@ -23,7 +26,7 @@ To register user send the following request on `/users/register`:
 }
 ```
 
-### Login Users
+### Login
 
 To login user send the following request on `/users/login`:
 
@@ -34,5 +37,19 @@ To login user send the following request on `/users/login`:
     'Content-Type': 'application/json'
     },
     body: JSON.stringify({ email, password })
+}
+```
+
+### Logout
+
+To logout user send the following request on `/users/logout`:
+
+```
+{
+    method: 'GET',
+    headers: {
+    'Content-Type': 'application/json',
+    'X-Authorization': {userAccessToken}
+    }
 }
 ```
