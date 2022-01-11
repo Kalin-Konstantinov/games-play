@@ -9,13 +9,16 @@ This is SoftUni practice server created by Viktor Konstadinov for educational pu
 | -[Login](#login)                  | -[AllGames](#allGames)|
 | -[Register](#register)            | -[NewGames](#newGames)|
 | -[Logout](#logout)                | -[CreateGame](#createGame)|
+|                                   | -[GameDetails](#gameDetails) |
+|                                   | -[EditGame](#editGame) |
+|                                   | -[DeleteGame](#deleteGame) |
 
 
 ## Authentication
 
 ### Register
 
-To register user send the following request on `/users/register`:
+To register user send following request to `/users/register`:
 ```
 {
     method: 'POST',
@@ -28,7 +31,7 @@ To register user send the following request on `/users/register`:
 
 ### Login
 
-To login user send the following request on `/users/login`:
+To login user send following request to `/users/login`:
 
 ```
 {
@@ -42,7 +45,7 @@ To login user send the following request on `/users/login`:
 
 ### Logout
 
-To logout user send the following request on `/users/logout`:
+To logout user send following request to `/users/logout`:
 
 ```
 {
@@ -58,15 +61,15 @@ To logout user send the following request on `/users/logout`:
 
 ### AllGames
 
-To take all games send `GET` request on `/data/games?sortBy=_createdOn%20desc`
+To take all games send `GET` request to `/data/games?sortBy=_createdOn%20desc`
 
 ### NewGames
 
-To take new games only send `GET` request on `/data/games?sortBy=_createdOn%20desc&distinct=category`
+To take new games only send `GET` request to `/data/games?sortBy=_createdOn%20desc&distinct=category`
 
-### createGame
+### CreateGame
 
-To create new game send following request on `/data/games`:
+To create new game send following request to `/data/games`:
 
 ```
 {
@@ -83,5 +86,45 @@ To create new game send following request on `/data/games`:
             summary
         }
     })
+}
+```
+
+### GameDetails
+
+To take details of one game send `GET` request to `/data/games/:gameId`
+
+### EditGame
+
+To edit game send following request to `/data/games/:gameId`:
+
+```
+{
+    method: 'PUT',
+    headers: {
+    'Content-Type': 'application/json',
+    'X-Authorization': {userAccessToken}
+    },
+    body: JSON.stringify({  
+            title, 
+            category,
+            maxLevel,
+            imageUrl,
+            summary
+        }
+    })
+}
+```
+
+### DeleteGame
+
+To delete game send following request to `/data/games/:gameId`:
+
+```
+{
+    method: 'DELETE',
+    headers: {
+    'Content-Type': 'application/json',
+    'X-Authorization': {userAccessToken}
+    }
 }
 ```
