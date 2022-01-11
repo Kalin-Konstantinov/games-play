@@ -4,14 +4,14 @@ This is SoftUni practice server created by Viktor Konstadinov for educational pu
 
 ## Services
 
-| [Authentication](#authentication) | [Games](#games)      | [Comments](#comments) |
-| :---                              |:---                  |:---                 |
-| -[Login](#login)                  | -[AllGames](#allGames)|
-| -[Register](#register)            | -[NewGames](#newGames)|
-| -[Logout](#logout)                | -[CreateGame](#createGame)|
-|                                   | -[GameDetails](#gameDetails) |
-|                                   | -[EditGame](#editGame) |
-|                                   | -[DeleteGame](#deleteGame) |
+| [Authentication](#authentication) | [Games](#games)              | [Comments](#comments)           |
+| :---                              | :---                         | :---                            |
+| -[Login](#login)                  | -[AllGames](#allGames)       | -[AllCommnts](#allComments)     |
+| -[Register](#register)            | -[NewGames](#newGames)       | -[CreateComment](#createComment)|
+| -[Logout](#logout)                | -[CreateGame](#createGame)   |                                 |
+|                                   | -[GameDetails](#gameDetails) |                                 |
+|                                   | -[EditGame](#editGame)       |                                 |
+|                                   | -[DeleteGame](#deleteGame)   |                                 |
 
 
 ## Authentication
@@ -126,5 +126,30 @@ To delete game send following request to `/data/games/:gameId`:
     'Content-Type': 'application/json',
     'X-Authorization': {userAccessToken}
     }
+}
+```
+
+## Comments
+
+## AllComments
+
+To get all comments for a specific game send `GET` request to `/data/comments?where=gameId%3D%22{gameId}%22`
+
+## CreateComment
+
+To create comment for a specific game send following request to `/data/comments`:
+
+```
+{
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json',
+    'X-Authorization': {userAccessToken}
+    },
+    body: JSON.stringify({  
+            gameId,
+            comment
+        }
+    })
 }
 ```
