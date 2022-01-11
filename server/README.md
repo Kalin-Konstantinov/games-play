@@ -2,15 +2,14 @@
 
 This is SoftUni practice server created by Viktor Konstadinov for educational purposes.
 
-| Services |
-|---        |
-| [Authentication](#authentication) |
-|   ---: |
-| -[Login](#login) |
-| -[Register](#register) |
-| -[Logout](#logout) |
-| [Games](#games) |
-| [Comments](#comments) |
+| Services                                                                    |
+| :----:                                                                      |        
+| [Authentication](#authentication) | [Games](#games) | [Comments](#comments) |
+| -[Login](#login)                  |
+| -[Register](#register)            |
+| -[Logout](#logout)                |
+| 
+| 
 
 ## Authentication
 
