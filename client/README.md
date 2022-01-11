@@ -2,8 +2,9 @@
 
 ## Overview
 
+To start application run command `npm start`.
+
 This application provides functionality to add, create, edit, delete and comment games.
-To start application run command `npm start`
 
 ### Used techoologies 
 
