@@ -6,7 +6,7 @@ This is SoftUni practice server created by Viktor Konstadinov for educational pu
 
 | [Authentication](#authentication) | [Games](#games)              | [Comments](#comments)           |
 | :---                              | :---                         | :---                            |
-| -[Login](#login)                  | -[AllGames](#allGames)       | -[AllCommnts](#allComments)     |
+| -[Login](#login)                  | -[AllGames](#allGames)       | -[AllComments](#allComments)    |
 | -[Register](#register)            | -[NewGames](#newGames)       | -[CreateComment](#createComment)|
 | -[Logout](#logout)                | -[CreateGame](#createGame)   |                                 |
 |                                   | -[GameDetails](#gameDetails) |                                 |
