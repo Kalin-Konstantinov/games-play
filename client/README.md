@@ -9,7 +9,7 @@ This SPA provides functionality to add, create, edit, delete and comment games.
 ### Used techoologies 
 
 - React
-- React-router-dom
+- React-router vs5
 - HTML
 - CSS
 
