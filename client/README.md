@@ -1,10 +1,10 @@
-# React GamesPlay front-end application
+# GamesPlay SPA
 
 ## Overview
 
 To start application run command `npm start`.
 
-This application provides functionality to add, create, edit, delete and comment games.
+This SPA provides functionality to add, create, edit, delete and comment games.
 
 ### Used techoologies 
 
