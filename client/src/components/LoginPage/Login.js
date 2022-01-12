@@ -15,11 +15,15 @@ const Login = ({
         const password = form.get('password');
         login({ email, password })
             .then((res) => {
+                if(res.code) {
+                    throw res;
+                }
                 safeUserData(res);
                 onLogin();
                 e.target.reset();
                 history.push('/');
-            });
+            })
+            .catch((err) => alert(err.message));
     }
 
     return (
