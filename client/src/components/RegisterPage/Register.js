@@ -18,11 +18,15 @@ const Register = ({
         }
         register({ email, password })
             .then(x => {
+                if (x.code) {
+                    throw x;
+                }
                 safeUserData(x);
                 onLogin();
                 e.target.reset();
                 history.push('/');
             })
+            .catch(err => alert(err.message));
     }
 
 
